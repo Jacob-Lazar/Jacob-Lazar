@@ -13,6 +13,8 @@ header {
 }
 
 img {
+    max-width: 100%; /* Ensure the image doesn't exceed its natural size */
+    max-height: 80vh; /* Limit the height to 80% of the viewport height */
     border-radius: 50%;
     margin-top: 10px;
 }
@@ -35,6 +37,22 @@ footer {
     width: 100%;
 }
 
-#topics button {
-    margin-right: 10px;
+#note-headings {
+    list-style-type: none;
+    padding: 0;
+}
+
+#note-headings li {
+    margin-bottom: 10px;
+}
+
+#note-headings a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#note-headings a:hover {
+    color: #007bff;
 }

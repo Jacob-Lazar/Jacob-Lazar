@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <title>Your Name's Profile</title>
+    <title>Jacob Lazar</title>
 </head>
 <body>
     <header>
-        <h1>Hello, I am Jacob Lazar.</h1>
-        <img src="profile.jpg" alt="Profile Picture" width="230" height="300">
+        <h1>Jacob Lazar</h1>
+        <img src="profile.jpg" alt="Profile Picture">
     </header>
     <section>
         <h2>About Me</h2>
@@ -18,14 +18,15 @@
     </section>
     <section id="notes-section">
         <h2>Notes</h2>
-        <div id="topics">
-            <button onclick="loadTopic('topic1')">Topic 1</button>
-            <button onclick="loadTopic('topic2')">Topic 2</button>
-        </div>
+        <ul id="note-headings">
+            <li><a href="#" onclick="loadNotebook('notebook1.ipynb')">Heading 1</a></li>
+            <li><a href="#" onclick="loadNotebook('notebook2.ipynb')">Heading 2</a></li>
+            <!-- Add more headings as needed -->
+        </ul>
         <div id="note-content"></div>
     </section>
     <footer>
-        <p>Contact me at: 23f1001427@ds.study.iitm.ac.in</p>
+        <p>Contact me at: your.email@example.com</p>
     </footer>
 
     <script>
@@ -38,25 +39,14 @@
 
         document.getElementById('about-me').innerHTML = marked(aboutMeContent);
 
-        function loadTopic(topic) {
+        function loadNotebook(notebook) {
             document.getElementById('note-content').innerHTML = '';
-
-            if (topic.endsWith('.ipynb')) {
-                // Load Jupyter Notebook
-                const iframe = document.createElement('iframe');
-                iframe.src = `https://nbviewer.jupyter.org/github/your-username/your-repo-name/blob/main/notebooks/${topic}`;
-                iframe.width = '100%';
-                iframe.height = '600px';
-                document.getElementById('note-content').appendChild(iframe);
-            } else {
-                // Load Markdown
-                fetch(`notes/${topic}.md`)
-                    .then(response => response.text())
-                    .then(text => {
-                        document.getElementById('note-content').innerHTML = marked(text);
-                    })
-                    .catch(error => console.error('Error loading topic:', error));
-            }
+            // Load Jupyter Notebook
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://nbviewer.jupyter.org/github/your-username/your-repo-name/blob/main/notebooks/${notebook}`;
+            iframe.width = '100%';
+            iframe.height = '600px';
+            document.getElementById('note-content').appendChild(iframe);
         }
     </script>
 </body>
